@@ -3,7 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29519.87
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Integracao.Usuario.POC", "Integracao.Usuario.POC.csproj", "{BE937B51-2CA2-41AF-B17A-5B443BAF111F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Integracao.Usuario.POC", "Integracao.Usuario.POC.csproj", "{BE937B51-2CA2-41AF-B17A-5B443BAF111F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{1938CE74-3901-453C-9B48-063E073E060A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{E01D2C3F-CBAE-4568-9BBE-A379C2214208}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Integracao.Usuario.POC.Test", "..\Integracao.Usuario.POC.Test\Integracao.Usuario.POC.Test.csproj", "{BD762F71-1E8E-47E0-A607-109CA698CA9F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Integracao.Usuario.POC.IntegratedTest", "..\Integracao.Usuario.POC.IntegratedTest\Integracao.Usuario.POC.IntegratedTest.csproj", "{AAD8638A-FD53-4A87-A938-57571FDA7EC2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +23,22 @@ Global
 		{BE937B51-2CA2-41AF-B17A-5B443BAF111F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE937B51-2CA2-41AF-B17A-5B443BAF111F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE937B51-2CA2-41AF-B17A-5B443BAF111F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD762F71-1E8E-47E0-A607-109CA698CA9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD762F71-1E8E-47E0-A607-109CA698CA9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD762F71-1E8E-47E0-A607-109CA698CA9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD762F71-1E8E-47E0-A607-109CA698CA9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAD8638A-FD53-4A87-A938-57571FDA7EC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAD8638A-FD53-4A87-A938-57571FDA7EC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAD8638A-FD53-4A87-A938-57571FDA7EC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAD8638A-FD53-4A87-A938-57571FDA7EC2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BE937B51-2CA2-41AF-B17A-5B443BAF111F} = {1938CE74-3901-453C-9B48-063E073E060A}
+		{BD762F71-1E8E-47E0-A607-109CA698CA9F} = {E01D2C3F-CBAE-4568-9BBE-A379C2214208}
+		{AAD8638A-FD53-4A87-A938-57571FDA7EC2} = {E01D2C3F-CBAE-4568-9BBE-A379C2214208}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4BAC94BE-5899-4DE1-9295-912675F003C3}
