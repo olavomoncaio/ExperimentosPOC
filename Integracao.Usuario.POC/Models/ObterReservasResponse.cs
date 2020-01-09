@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Integracao.Usuario.POC.Models
 {
-    public class ObterRespostaResponse
+    public class ObterReservasResponse : BaseResponse
     {
         public Guid ReservaId { get; set; }
         public string Nome { get; set; }

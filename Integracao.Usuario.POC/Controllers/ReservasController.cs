@@ -18,11 +18,11 @@ namespace Integracao.Usuario.POC.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> ObterArquivos([FromBody] ObterReservasRequest query)
+        public async Task<IActionResult> Listar([FromBody] ObterReservasRequest query)
         {
             return await TratarResultadoAsync(async () =>
             {
-                var resultado = await _service.Listar(query);
+                var resultado = await _service.ListarReservas(query);
 
                 return new ObjectResult(resultado) { StatusCode = StatusCodes.Status200OK };
             });

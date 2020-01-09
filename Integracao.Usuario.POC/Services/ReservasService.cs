@@ -17,7 +17,7 @@ namespace Integracao.Usuario.POC.Services
             _configuracao = configuracao;
         }
 
-        public async Task<ObterRespostaResponse> Listar(ObterReservasRequest query)
+        public async Task<ObterReservasResponse> ListarReservas(ObterReservasRequest query)
         {
             return null;
         }
