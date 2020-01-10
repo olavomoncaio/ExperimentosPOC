@@ -17,10 +17,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Validators\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Integracao.Usuario.POC\Integracao.Usuario.POC.csproj" />
   </ItemGroup>
 
