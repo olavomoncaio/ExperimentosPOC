@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Integracao.Usuario.POC.Models
+﻿namespace Integracao.Usuario.POC.Models
 {
     public class Hospede
     {
@@ -8,5 +6,7 @@ namespace Integracao.Usuario.POC.Models
         public string Sobrenome { get; set; }
         public DateTime DataNascimento { get; set; }
         public string Documento { get; set; }
+        public string Telefone { get; set;
+        }
     }
 }
