@@ -1,10 +1,8 @@
-﻿using System;
-
-namespace Integracao.Usuario.POC.Models
+﻿namespace Integracao.Usuario.POC.Models
 {
     public class ObterReservasRequest
     {
-        public string Documento { get; set; }  
-        public Guid ReservaId { get; set; } 
+        public int HospedeId { get; set; } 
+        public bool Inativa { get; set; }
     }
 }

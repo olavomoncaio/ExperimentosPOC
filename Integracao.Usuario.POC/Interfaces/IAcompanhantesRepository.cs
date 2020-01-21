@@ -1,11 +1,12 @@
 ﻿using Integracao.Usuario.POC.Dto;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Integracao.Usuario.POC.Interfaces
 {
-    public interface IReservasRepository
+    public interface IAcompanhantesRepository
     {
-        Task<IEnumerable<ReservaDto>> ObterReservas(int hospedeId, bool inativa);
+        Task<IEnumerable<AcompanhanteDto>> ObterAcompanhantes(Guid reservaId);
     }
 }

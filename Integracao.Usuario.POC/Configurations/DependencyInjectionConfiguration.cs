@@ -11,6 +11,8 @@ namespace Integracao.Usuario.POC.Configurations
         {
             services.AddTransient<IReservaService, ReservasService>();
             services.AddTransient<IReservasRepository, ReservasRepository>();
+            services.AddTransient<IHospedesRepository, HospedesRepository>();
+            services.AddTransient<IAcompanhantesRepository, AcompanhantesRepository>();
 
             return services;
         }

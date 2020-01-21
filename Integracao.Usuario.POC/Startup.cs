@@ -1,3 +1,4 @@
+using AutoMapper;
 using Integracao.Usuario.POC.Configurations;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
@@ -5,6 +6,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System;
 
 namespace Integracao.Usuario.POC
 {
@@ -21,6 +23,7 @@ namespace Integracao.Usuario.POC
         {
             services.AddControllers();
             services.ConfigurarDependencias();
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddHealthChecks();
         }
 

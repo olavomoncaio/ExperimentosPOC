@@ -22,21 +22,9 @@ namespace Integracao.Usuario.POC.Test.Validators
         [Fact]
         public void ObterReservasRequestValidator_QuandoTodosOsDadosEstiveremCorretos_DeveRetornarSucesso()
         {
-            _request.Documento = "12345678901";
+            _request.HospedeId = 123;
             var result = _validatorBody.Validate(_request);
             result.IsValid.Should().BeTrue();
-        }
-
-
-        [Theory]
-        [InlineData("1111111111111111")]
-        [InlineData("111111")]
-        [InlineData("")]
-        public void ObterReservasRequestValidator_QuandoDocumentoForVazioOuInvalido_DeveRetornarErro(string documento)
-        {
-            _request.Documento = documento;
-            var result = _validatorBody.Validate(_request);
-            result.IsValid.Should().BeFalse();
         }
     }
 }

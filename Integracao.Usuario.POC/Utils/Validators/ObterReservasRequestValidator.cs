@@ -7,8 +7,7 @@ namespace Integracao.Usuario.POC.Utils.Validators
     {
         public ObterReservasRequestValidator()
         {
-            RuleFor(x => x.Documento).NotEmpty().WithMessage("Documento é obrigatório.").
-                Length(11, 11).WithMessage("CPF com tamanho inválido.");
+            RuleFor(x => x.HospedeId).NotEmpty().WithMessage("HospedeId é obrigatório.");
         }
     }
 }

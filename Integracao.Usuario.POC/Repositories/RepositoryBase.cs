@@ -12,7 +12,7 @@ namespace Integracao.Usuario.POC.Repositories
         }
         protected string ObterConexao
         {
-            get { return _configuration.GetConnectionString("Conectcar"); }
+            get { return _configuration.GetConnectionString("Hotelaria"); }
         }
     }
 }

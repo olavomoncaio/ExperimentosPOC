@@ -1,9 +1,10 @@
 ﻿using System;
 
-namespace Integracao.Usuario.POC.Models
+namespace Integracao.Usuario.POC.Dto
 {
-    public class Hospede
+    public class HospedeDto
     {
+        public int HospedeId { get; set; }
         public string Nome { get; set; }
         public string Sobrenome { get; set; }
         public string Documento { get; set; }
