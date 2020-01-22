@@ -26,5 +26,15 @@ namespace Integracao.Usuario.POC.Test.Validators
             var result = _validatorBody.Validate(_request);
             result.IsValid.Should().BeTrue();
         }
+
+        [Theory]
+        [InlineData(int.MinValue)]
+        [InlineData(0)]
+        public void ObterReservasRequestValidator_QuandoHospedeIdForInvalido_DeveRetornarSucesso(int hospedeId)
+        {
+            _request.HospedeId = hospedeId;
+            var result = _validatorBody.Validate(_request);
+            result.IsValid.Should().BeFalse();
+        }
     }
 }
