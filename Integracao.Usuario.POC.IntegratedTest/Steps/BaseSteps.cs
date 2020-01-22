@@ -1,4 +1,5 @@
 ﻿using BoDi;
+using Integracao.Usuario.POC.IntegratedTest.Dados;
 using RestSharp;
 using System;
 using System.Net;
@@ -14,6 +15,7 @@ namespace Integracao.Usuario.POC.IntegratedTest.Steps
         private IRestRequest _restRequest;
         private IRestResponse _restResponse;
         private readonly IObjectContainer _objectContainer;
+        private ObterReservasRequest _ObterReservasRequest;
 
         public BaseSteps(IObjectContainer objectContainer) => _objectContainer = objectContainer;
 
@@ -26,6 +28,7 @@ namespace Integracao.Usuario.POC.IntegratedTest.Steps
             _objectContainer.RegisterInstanceAs(_restClient);
             _objectContainer.RegisterInstanceAs(_restRequest);
             _objectContainer.RegisterInstanceAs(_restResponse);
+            _ObterReservasRequest = new ObterReservasRequest();
         }
 
         [Given(@"que o host é '(.*)'")]
@@ -50,12 +53,24 @@ namespace Integracao.Usuario.POC.IntegratedTest.Steps
                 _restRequest.Method = Method.PUT;
         }
 
+        [Given(@"o hospedeId seja (.*)")]
+        public void InserindoHospedeIdNoRequest(int hospedeId)
+        {
+            _ObterReservasRequest.HospedeId = hospedeId;
+        }
+
+        [Given(@"o inativo seja (.*)")]
+        public void InserindoInativoNoRequest(bool inativa)
+        {
+            _ObterReservasRequest.Inativa = inativa;
+        }
+
         [When(@"executar a requisição")]
         public void QuandoExecutarARequisicao()
         {
             if (_restRequest.Method == Method.GET)
             {             
-                ExecutarRequisicao(_restRequest);
+                ExecutarRequisicao(_ObterReservasRequest);
             }
         }
 
