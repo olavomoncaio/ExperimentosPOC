@@ -15,16 +15,19 @@ namespace Integracao.Usuario.POC.Repositories
         {
         }
 
-        public async Task<IEnumerable<AcompanhanteDto>> ObterAcompanhantes(Guid reservaId)
+        public async Task<IEnumerable<AcompanhanteDto>> ObterAcompanhantes(int hospedeId)
         {
-            string query = @"SELECT  Documento, Nome, Sobrenome, DataNascimento
-                            FROM Acompanhante
-                            WHERE ReservaId = @reservaId";
+            string query = @"SELECT     Acompanhante.Documento, Acompanhante.Nome, Acompanhante.Sobrenome, 
+                                        Acompanhante.DataNascimento, Acompanhante.ReservaID
+                            FROM Acompanhante AS Acompanhante 
+                            INNER JOIN Reserva AS Reserva on Acompanhante.ReservaID = Reserva.ReservaID
+                            INNER JOIN Hospede AS Hospede on Reserva.HospedeID = Hospede.HospedeID
+                            WHERE Hospede.HospedeID = @hospedeId";
 
             using (var con = new SqlConnection(ObterConexao))
             {
                 await con.OpenAsync();
-                return await con.QueryAsync<AcompanhanteDto>(query, new { reservaId });
+                return await con.QueryAsync<AcompanhanteDto>(query, new { hospedeId });
             }
         }
     }

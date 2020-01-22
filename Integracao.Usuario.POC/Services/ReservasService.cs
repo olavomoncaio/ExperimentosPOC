@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Integracao.Usuario.POC.Services
@@ -38,15 +39,22 @@ namespace Integracao.Usuario.POC.Services
             var reservasDto = await _reservasRepository.ObterReservas(query.HospedeId, query.Inativa);
             if (reservasDto == null)
                 return new BaseResponse { StatusCode = StatusCodes.Status404NotFound, Mensagem = "Nenhuma reserva foi encontrada." };
-  
-            foreach (var reserva in reservasDto)
-            {                         
-                reserva.Hospede = hospedeDto;
+
+            var acompanhanteDto = await _acompanhantesRepository.ObterAcompanhantes(query.HospedeId);
+
+            var hospede = _mapper.Map<Hospede>(hospedeDto);
+            var reservas = _mapper.Map<List<Reserva>>(reservasDto);
+            var acompanhante = _mapper.Map<List<Acompanhante>>(acompanhanteDto);
+
+            foreach(var reserva in reservas)
+            {
+                reserva.Acompanhantes = new List<Acompanhante>();
+                reserva.Acompanhantes.AddRange(acompanhante.Where(x => x.ReservaId == reserva.ReservaId));           
             }
 
-            var result = _mapper.Map<IEnumerable<ObterReservasResponse>>(reservasDto);
+            var result = new ObterReservasResponse { StatusCode = StatusCodes.Status200OK, Mensagem = "Reservas retornadas com sucesso.", Hospede = hospede, Reservas = reservas };
 
-            return null;
+            return result;
         }
     }
 }

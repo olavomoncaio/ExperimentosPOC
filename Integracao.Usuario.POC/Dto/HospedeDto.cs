@@ -5,9 +5,10 @@ namespace Integracao.Usuario.POC.Dto
     public class HospedeDto
     {
         public int HospedeId { get; set; }
+        public int UsuarioId { get; set; }
+        public string Documento { get; set; }
         public string Nome { get; set; }
         public string Sobrenome { get; set; }
-        public string Documento { get; set; }
         public DateTime DataNascimento { get; set; }
         public string Logradouro { get; set; }
         public string Numero { get; set; }

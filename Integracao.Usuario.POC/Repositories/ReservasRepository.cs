@@ -16,10 +16,10 @@ namespace Integracao.Usuario.POC.Repositories
 
         public async Task<IEnumerable<ReservaDto>> ObterReservas(int hospedeId, bool inativa)
         {
-            string query = @"SELECT   Reserva.ReservaId, Reserva.DataEntrada, Reserva.DataSaida                          
-                             FROM     Reserva(NOLOCK)
-                                      INNER JOIN Hospede(NOLOCK) ON Hospede.HospedeId = Reserva.HospedeId
-                                      AND Reserva.HospedeId = @hospedeId";
+            string query = @"SELECT   Reserva.ReservaId, Reserva.DataEntrada, Reserva.DataSaida, Reserva.Ativa                          
+                             FROM Reserva(NOLOCK)
+                             INNER JOIN Hospede(NOLOCK) ON Hospede.HospedeId = Reserva.HospedeId
+                             AND Reserva.HospedeId = @hospedeId";
 
             if (!inativa)
                 query += " AND Reserva.Ativa = 1";
